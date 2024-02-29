@@ -1,0 +1,24 @@
+@use "variables" as v;
+
+.filter-container {
+  @include v.flex-box(stretch, auto);
+}
+
+.theme-btn {
+  width: 38px;
+  font-weight: 600;
+  margin-left: 16px;
+  @include v.flex-box(center, center);
+  @include v.button();
+  &:hover {
+    border-color: v.$dark-purple;
+    background-color: v.$dark-purple;
+    box-shadow: 0 0 5px v.$purple;
+  }
+}
+
+@include v.themify(v.$themes) {
+  .theme-btn img {
+    content: v.themed("theme-icon");
+  }
+}

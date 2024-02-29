@@ -1,0 +1,43 @@
+@use "variables" as v;
+
+.search-container {
+  display: flex;
+  position: relative;
+  max-width: 595px;
+  width: 60vw;
+}
+
+.search-input {
+  font-family: inter;
+  width: 100%;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 8px 48px 8px 16px;
+  z-index: 1;
+}
+
+.search-btn {
+  @include v.flex-box(center, center);
+  position: absolute;
+  right: 5px;
+  height: 100%;
+  background: transparent;
+  border: none;
+}
+
+@include v.themify(v.$themes) {
+  .search-input {
+    border: 1px solid v.themed("s-border");
+    color: v.themed("input-text");
+    &::placeholder {
+      color: v.themed("placeholder");
+    }
+    &:focus {
+      outline: 2px solid v.themed("s-outline");
+    }
+  }
+  .search-btn img {
+    content: v.themed("search-icon");
+  }
+}

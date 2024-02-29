@@ -1,0 +1,59 @@
+@use "variables" as v;
+
+.todoitem-container {
+  @include v.flex-box(space-between, center);
+  border-bottom: 1px solid v.$purple;
+  padding: 17px 0;
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.todo-checkbox {
+  cursor: pointer;
+  margin-right: 17px;
+  border-radius: 3px;
+  padding: 0px 4px;
+  background-color: transparent;
+  border: 2px solid v.$purple;
+  
+}
+input:checked ~ .todo-checkbox {
+  background-color: v.$purple;
+  .checkmark {
+    opacity: 1;
+  }
+}
+.checkmark {
+  opacity: 0;
+  width: 16px;
+}
+.checkbox-label {
+  font-size: 20px;
+  cursor: pointer;
+  transition: line-through 0.5s, color 0.1s;
+}
+@include v.themify(v.$themes) {
+  input:checked ~ .checkbox-label {
+    color: v.themed('label-checked');
+    text-decoration: line-through;
+  }
+}
+  
+.todo-button-container {
+  @include v.flex-box(space-around, center);
+  width: 50px;
+}
+
+.todo-button-container button {
+  padding: 0;
+}
+
+.edit-img:hover {
+  content: url('./src/assets/edit-hover.svg')
+}
+.delete-img:hover {
+  content: url('./src/assets/delete-hover.svg')
+}

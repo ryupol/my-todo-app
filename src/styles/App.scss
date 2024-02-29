@@ -1,0 +1,70 @@
+@use "dropdown";
+@use "header";
+@use "searchBar";
+@use "todoList";
+@use "todoItem";
+@use "modal";
+@use "variables" as v;
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+h3 {
+  margin: 40px 0 18px;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+input {
+  font-family: inter;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 8px 48px 8px 16px;
+}
+@include v.themify(v.$themes) {
+  input {
+    border: 1px solid v.themed("s-border");
+    color: v.themed("input-text");
+    &::placeholder {
+      color: v.themed("placeholder");
+    }
+    &:focus {
+      outline: 2px solid v.themed("s-outline");
+    }
+  }
+}
+
+.app-container {
+  overflow-x: hidden;
+  @include v.flex-box(auto, center);
+  border: 0 !important;
+  font-family: Kanit, sans-serif, Arial;
+  width: 99%;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  text-align: center;
+}
+
+@include v.themify(v.$themes) {
+  border: 1px solid v.themed("s-border");
+  color: v.themed("text");
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle on hover */
+@include v.themify(v.$themes) {
+  .todolist:hover {
+    &::-webkit-scrollbar-thumb {
+      background-color: v.themed("placeholder");
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+  }
+}

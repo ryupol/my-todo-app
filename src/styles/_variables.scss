@@ -1,0 +1,73 @@
+// Functions
+@mixin flex-box($horizontal: auto, $vertical: auto) {
+  display: flex;
+  justify-content: $horizontal;
+  align-items: $vertical;
+}
+
+@mixin button() {
+  cursor: pointer;
+  font-size: 14px;
+  background-color: $purple;
+  color: $white;
+  border: 2px solid $purple;
+  border-radius: 5px;
+}
+
+// Color palette
+$black: #252525;
+$gray: #25252550;
+$light-gray: #666666;
+$white: #f7f7f7;
+$white40: #ffffff40;
+$light-purple: #c3c1e5;
+$dark-purple: #534cc2;
+$purple: #6c63ff;
+$purple20: #6c63ff20;
+$purple40: #6c63ff40;
+$purple50: #6c63ff50;
+
+// Theme
+$themes: (
+  light: (
+    bg: $white,
+    text: $black,
+    input-text: $purple,
+    placeholder: $light-purple,
+    s-border: $purple,
+    s-outline: $purple40,
+    s-icon: $purple,
+    shadow: $dark-purple,
+    label-checked: #8e8e8e,
+    search-icon: url("./src/assets/search-icon-light.svg"),
+    theme-icon: url("./src/assets/theme-icon-light.svg"),
+    noitem-icon: url("./src/assets/noitem-light.png"),
+  ),
+  dark: (
+    bg: $black,
+    text: $white,
+    input-text: $white,
+    placeholder: $light-gray,
+    s-border: $white,
+    s-outline: $white40,
+    s-icon: $white,
+    shadow: $white40,
+    label-checked: #929292,
+    search-icon: url("./src/assets/search-icon-dark.svg"),
+    noitem-icon: url("./src/assets/noitem-dark.png"),
+    theme-icon: url("./src/assets/theme-icon-dark.svg"),
+  ),
+);
+
+@mixin themify($themes) {
+  @each $name, $value in $themes {
+    [data-theme="#{$name}"] {
+      $theme-map: $value !global;
+      @content;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

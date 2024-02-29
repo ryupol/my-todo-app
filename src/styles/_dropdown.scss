@@ -1,0 +1,49 @@
+@use "variables" as v;
+
+.dropdown {
+  position: relative;
+}
+.dropdown-btn {
+  @include v.button();
+  @include v.flex-box(space-between, center);
+  width: 85px;
+  max-width: 150px;
+  font-weight: 600;
+
+  padding: 8px;
+  margin-left: 16px;
+  > i {
+    font-size: 10px;
+    pointer-events: none;
+  }
+}
+@include v.themify(v.$themes) {
+  .dropdown-btn {
+    box-shadow: 0 0 3px v.themed("shadow");
+  }
+}
+
+.dropdown-content {
+  right: 0;
+  z-index: 10;
+  position: absolute;
+  border: 1px solid v.$purple;
+  border-radius: 5px;
+  color: v.$purple;
+  background-color: v.$white;
+  width: 82%;
+  cursor: default;
+  > div {
+    text-align: left;
+    padding: 2px 4px;
+    font-size: 14px;
+    &:hover {
+      background-color: v.$purple20;
+    }
+  }
+}
+
+.focus {
+  background-color: v.$dark-purple;
+  box-shadow: 0 0 0 !important;
+}
