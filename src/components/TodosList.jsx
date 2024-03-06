@@ -86,7 +86,7 @@ export default function TodosList({ search, todoFilter }) {
           setModalOpen(true);
         }}
       >
-        <img src="./src/assets/add.svg" alt="" className="plus-icon" />
+        <img src="/add.svg" alt="" className="plus-icon" />
       </button>
       <Modal
         todos={todos}

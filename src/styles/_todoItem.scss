@@ -52,8 +52,8 @@ input:checked ~ .todo-checkbox {
 }
 
 .edit-img:hover {
-  content: url('./src/assets/edit-hover.svg')
+  content: url('/edit-hover.svg')
 }
 .delete-img:hover {
-  content: url('./src/assets/delete-hover.svg')
+  content: url('/delete-hover.svg')
 }

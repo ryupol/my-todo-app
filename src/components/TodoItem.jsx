@@ -58,7 +58,7 @@ export default function TodoItem({ itemProp, delTodo, handleChange }) {
           />
           <span className="todo-checkbox">
             <img
-              src="./src/assets/check.svg"
+              src="/check.svg"
               alt="icon"
               className="checkmark"
             />
@@ -78,10 +78,10 @@ export default function TodoItem({ itemProp, delTodo, handleChange }) {
               setEditing(!editing);
             }}
           >
-            <img className="edit-img" src="./src/assets/edit.svg" alt="icon" />
+            <img className="edit-img" src="/edit.svg" alt="icon" />
           </button>
           <button onClick={() => delTodo(itemProp.id)}>
-            <img className="delete-img" src="./src/assets/delete.svg" alt="icon" />
+            <img className="delete-img" src="/delete.svg" alt="icon" />
           </button>
         </div>
       </div>

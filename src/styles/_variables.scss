@@ -39,9 +39,9 @@ $themes: (
     s-icon: $purple,
     shadow: $dark-purple,
     label-checked: #8e8e8e,
-    search-icon: url("./src/assets/search-icon-light.svg"),
-    theme-icon: url("./src/assets/theme-icon-light.svg"),
-    noitem-icon: url("./src/assets/noitem-light.png"),
+    search-icon: url("/search-icon-light.svg"),
+    theme-icon: url("/theme-icon-light.svg"),
+    noitem-icon: url("/noitem-light.png"),
   ),
   dark: (
     bg: $black,
@@ -53,9 +53,9 @@ $themes: (
     s-icon: $white,
     shadow: $white40,
     label-checked: #929292,
-    search-icon: url("./src/assets/search-icon-dark.svg"),
-    noitem-icon: url("./src/assets/noitem-dark.png"),
-    theme-icon: url("./src/assets/theme-icon-dark.svg"),
+    search-icon: url("/search-icon-dark.svg"),
+    noitem-icon: url("/noitem-dark.png"),
+    theme-icon: url("/theme-icon-dark.svg"),
   ),
 );
 
