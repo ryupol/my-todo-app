@@ -1,8 +1,13 @@
 import { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setTodoFilter } from "../store/filterSlice";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Dropdown({ todoFilter, setTodoFilter }) {
+export default function Dropdown() {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const { todoFilter } = useSelector((state) => state.todoFilter);
+
   const ref = useRef();
   const dropdownContent = ["All", "Complete", "Incomplete"];
   const n = dropdownContent.length;
@@ -20,7 +25,7 @@ export default function Dropdown({ todoFilter, setTodoFilter }) {
   }, []);
   return (
     <div className="dropdown" ref={ref}>
-      <button 
+      <button
         className={`dropdown-btn${open ? " focus" : ""}`}
         onClick={() => setOpen(!open)}
       >
@@ -34,12 +39,12 @@ export default function Dropdown({ todoFilter, setTodoFilter }) {
         ></i>
       </button>
       {open && (
-        <div className="dropdown-content" >
+        <div className="dropdown-content">
           {dropdownContent.map((value, index) => (
             <div
               key={uuidv4()}
               onClick={() => {
-                setTodoFilter(value);
+                dispatch(setTodoFilter(value));
                 setOpen(false);
               }}
               style={{

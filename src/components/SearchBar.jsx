@@ -1,17 +1,22 @@
-import { useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearch } from "../store/searchSlice";
 
-export default function SearchBar({ search, setSearch }) {
+export default function SearchBar() {
+  const { search } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
-    setSearch(e.target.value);
+    dispatch(setSearch(e.target.value));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSearch(e.target.value);
-  };
   return (
     <>
-      <form className="search-container" onSubmit={handleSubmit}>
+      <form
+        className="search-container"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <input
           type="text"
           placeholder="Search note..."

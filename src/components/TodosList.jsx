@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import TodoItem from "@/components/TodoItem";
 import Modal from "@/components/Modal";
+import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-export default function TodosList({ search, todoFilter }) {
+export default function TodosList() {
+  const { search } = useSelector((state) => state.search);
+  const { todoFilter } = useSelector((state) => state.todoFilter);
+
   const getInitialTodos = () => {
     const temp = localStorage.getItem("todos");
     const saveTodos = JSON.parse(temp);
@@ -63,9 +67,8 @@ export default function TodosList({ search, todoFilter }) {
       <div className="todolist">
         {filtered.length > 0 ? (
           filtered.map((todo) => (
-            <ul>
+            <ul key={todo.id}>
               <TodoItem
-                key={todo.id}
                 itemProp={todo}
                 addTodo={addTodo}
                 delTodo={delTodo}
@@ -89,7 +92,6 @@ export default function TodosList({ search, todoFilter }) {
         <img src="/add.svg" alt="" className="plus-icon" />
       </button>
       <Modal
-        todos={todos}
         addTodo={addTodo}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}

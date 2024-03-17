@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function Modal({ todos, addTodo, modalOpen, setModalOpen, addInputRef }) {
+export default function Modal({ addTodo, modalOpen, setModalOpen, addInputRef }) {
   const [message, setMessage] = useState("");
   const [modalInput, setModalInput] = useState("");
   const modalRef = useRef();

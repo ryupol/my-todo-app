@@ -1,20 +1,13 @@
 import Dropdown from "@/components/Dropdown";
 import SearchBar from "@/components/SearchBar";
 
-export default function Header({
-  search,
-  setSearch,
-  todoFilter,
-  setTodoFilter,
-  isDark,
-  setIsDark
-}) {
+export default function Header({ isDark, setIsDark }) {
   return (
     <div className="header">
       <h3>TODO LIST</h3>
       <div className="filter-container">
-        <SearchBar search={search} setSearch={setSearch} />
-        <Dropdown todoFilter={todoFilter} setTodoFilter={setTodoFilter} />
+        <SearchBar />
+        <Dropdown />
         <button
           className="theme-btn"
           onClick={() => {
